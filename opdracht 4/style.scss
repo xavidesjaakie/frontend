@@ -1,0 +1,198 @@
+// Variabelen
+$color-primary: #1abc9c;
+$color-secondary: #3598db;
+$color-dark-bg: #121212;
+$color-dark-text: #e0e0e0;
+$font-main: 'Segoe UI', sans-serif;
+$radius: 10px;
+$spacing: 1rem;
+
+// Algemene opmaak
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-main;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+
+  &.dark-mode {
+    background: $color-dark-bg;
+    color: $color-dark-text;
+
+    header {
+      background: linear-gradient(to right, #000000, #434343);
+    }
+
+    nav {
+      background: #1e1e1e;
+
+      ul li a {
+        color: $color-dark-text;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    main {
+      background: #1e1e1e;
+      color: $color-dark-text;
+    }
+
+    footer {
+      background: #000;
+    }
+
+    #darkModeToggle {
+      background: #333;
+      color: #fff;
+    }
+
+    .opleiding, .ervaring {
+      background: #1f1f1f;
+      color: $color-dark-text;
+
+      .jaar {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+header {
+  background: linear-gradient(to right, $color-primary, $color-secondary);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .profile {
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+nav {
+  background: darken($color-secondary, 15%);
+  padding: $spacing;
+  position: relative;
+
+  .hamburger-toggle {
+    font-size: 24px;
+    color: white;
+    display: none;
+    cursor: pointer;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+
+    &.active {
+      display: flex;
+    }
+
+    li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      display: none;
+      flex-direction: column;
+      background: #2c3e50;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .hamburger-toggle {
+      display: block;
+    }
+  }
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: $radius;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+footer {
+  background: darken($color-secondary, 15%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#darkModeToggle {
+  margin-top: 1rem;
+  background: white;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #ecf0f1;
+  }
+}
+
+.opleiding, .ervaring {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+
+  .info {
+    max-width: 70%;
+  }
+
+  .jaar {
+    font-weight: bold;
+    color: $color-secondary;
+  }
+}
